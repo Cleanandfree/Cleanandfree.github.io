@@ -6,14 +6,41 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Hexo</title>
+  <title>Eclipse JSP/Servlet 环境搭建 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;index.html">
+  <meta name="description" content="Eclipse JSP&#x2F;Servlet 环境搭建本文假定你已安装了 JDK 环境，如未安装，可参阅  Java 开发环境配置 。 我们可以使用 Eclipse 来搭建 JSP 开发环境，首先我们分别下载一下软件包：  Eclipse J2EE：http:&#x2F;&#x2F;www.eclipse.org&#x2F;downloads&#x2F;  Tomcat：http:&#x2F;&#x2F;tomcat.apache.org&#x2F;download-70">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Eclipse JSP&#x2F;Servlet 环境搭建">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;30&#x2F;Eclipse-JSPServlet-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Eclipse JSP&#x2F;Servlet 环境搭建本文假定你已安装了 JDK 环境，如未安装，可参阅  Java 开发环境配置 。 我们可以使用 Eclipse 来搭建 JSP 开发环境，首先我们分别下载一下软件包：  Eclipse J2EE：http:&#x2F;&#x2F;www.eclipse.org&#x2F;downloads&#x2F;  Tomcat：http:&#x2F;&#x2F;tomcat.apache.org&#x2F;download-70">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;232104286524890.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;232104410586765.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;232105392158264.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;tomcat-index.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;232106198557249.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;test-jsp.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;232111301681549.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;232111442933866.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;232112245587963.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;232112541213100.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;302044303245040.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;8998BEC1-D622-4BD4-A9E6-8B18D2A5F29C.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;232113121219000.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;232113256216676.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;232113367466511.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;testjsp1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;runas.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;232120047932694.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;232120199803353.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;A72F19CD-4FEA-4AE3-8D91-43B34623EC37.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;sns.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;22D8CED0-F2DD-4554-BFBD-2B19D1685FB9.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;3E00DBEA-85CA-4F66-A7E9-24C43BC9C756.jpg">
+<meta property="og:updated_time" content="2019-10-30T10:53:37.613Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;wp-content&#x2F;uploads&#x2F;2016&#x2F;01&#x2F;232104286524890.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -149,211 +176,245 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Eclipse-JSPServlet-环境搭建" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Eclipse JSP/Servlet 环境搭建
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/30/Eclipse-JSPServlet-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="archive-article-date">
+
+        
+        <a href="/2019/10/30/Eclipse-JSPServlet-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="archive-article-date">
   	<time datetime="2019-10-30T10:53:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/30/Eclipse-JSPServlet-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">Eclipse JSP/Servlet 环境搭建</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Eclipse-JSP-Servlet-环境搭建"><a href="#Eclipse-JSP-Servlet-环境搭建" class="headerlink" title="Eclipse JSP/Servlet 环境搭建"></a>Eclipse JSP/Servlet 环境搭建</h1><p>本文假定你已安装了 JDK 环境，如未安装，可参阅 <a href=""> Java 开发环境配置 </a>。</p>
+<p>我们可以使用 Eclipse 来搭建 JSP 开发环境，首先我们分别下载一下软件包：</p>
+<ul>
+<li><strong>Eclipse J2EE：</strong><a href="http://www.eclipse.org/downloads/" target="_blank" rel="noopener">http://www.eclipse.org/downloads/</a> </li>
+<li><strong>Tomcat：</strong><a href="http://tomcat.apache.org/download-70.cgi" target="_blank" rel="noopener">http://tomcat.apache.org/download-70.cgi</a> </li>
+</ul>
+<hr>
+<h2 id="Tomcat-下载安装"><a href="#Tomcat-下载安装" class="headerlink" title="Tomcat 下载安装"></a>Tomcat 下载安装</h2><p>你可以根据你的系统下载对应的包(以下以Window系统为例)：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232104286524890.png" alt="img"> </p>
+<p>下载之后，将压缩包解压到D盘（你可以自己选择）： </p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232104410586765.png" alt="img"> </p>
+<p>注意目录名不能有中文和空格。目录介绍如下：</p>
+<ul>
+<li>bin：二进制执行文件。里面最常用的文件是<strong>startup.bat</strong>，如果是 Linux 或 Mac 系统启动文件为 <strong>startup.sh</strong>。</li>
+<li>conf:配置目录。里面最核心的文件是<strong>server.xml</strong>。可以在里面改端口号等。默认端口号是8080，也就是说，此端口号不能被其他应用程序占用。</li>
+<li>lib：库文件。tomcat运行时需要的jar包所在的目录</li>
+<li>logs：日志</li>
+<li>temp：临时产生的文件，即缓存</li>
+<li>webapps：web的应用程序。<strong>web应用放置到此目录下浏览器可以直接访问</strong></li>
+<li>work：编译以后的class文件。</li>
+</ul>
+<p>接着我们可以双击 startup.bat 启动 Tomcat，弹出如下界面：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232105392158264.png" alt="img"></p>
+<p>这个时候，本地的服务器就已经搭建起来了。如果想关闭服务器，可以直接关闭上面的窗口，或者在里面输入Ctrl+C禁止服务。</p>
+<p>接着我们在浏览器中输入 <strong><a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a></strong>，如果弹出如下界面，表示tomcat安装成功并且启动起来了：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/tomcat-index.jpg" alt="img"></p>
+<p>我们现在在浏览器上测试一下它吧： </p>
+<p>首先在D:\apache-tomcat-8.0.14\webapps\ROOT目录中新建一个jsp文件：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232106198557249.jpg" alt="img"></p>
+<p>test.jsp 文件代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; %&gt;</span><br><span class="line">&lt;%</span><br><span class="line">out.print(&quot;菜鸟教程 : http://www.runoob.com&quot;);</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<p>接着在浏览器中访问地址 <strong><a href="http://localhost:8080/test.jsp" target="_blank" rel="noopener">http://localhost:8080/test.jsp</a></strong>, 输出结果如下：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/test-jsp.jpg" alt="img"></p>
+<hr>
+<h2 id="将-Tomcat-和-Eclipse-相关联"><a href="#将-Tomcat-和-Eclipse-相关联" class="headerlink" title="将 Tomcat 和 Eclipse 相关联"></a>将 Tomcat 和 Eclipse 相关联</h2><p>Eclipse J2EE下载后，解压即可使用，我们打开Java EE ，选择菜单栏Windows–&gt;preferences（Mac 系统为 Eclipse–&gt;偏好设置），弹出如下界面：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232111301681549.png" alt="img"></p>
+<p>上图中，点击”add”的添加按钮，弹出如下界面：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232111442933866.png" alt="img"></p>
+<p>在选项中，我们选择对应的 Tomcat 版本，接着点击 “Next”，选择 Tomcat 的安装目录，并选择我们安装的 Java 环境：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232112245587963.png" alt="img"></p>
+<p>点击 “Finish”，完成配置。</p>
+<h3 id="创建实例"><a href="#创建实例" class="headerlink" title="创建实例"></a>创建实例</h3><p>选择 “File–&gt;New–&gt;Dynamic Web Project”，创建 TomcatTest 项目：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232112541213100.png" alt="img"></p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/302044303245040.png" alt="img"></p>
+<p>点开上图中的红框部分，弹出如下界面：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/8998BEC1-D622-4BD4-A9E6-8B18D2A5F29C.jpg" alt="img"></p>
+<p>注意如果已默认选择了我们之前安装的 Tomcat 和 JDK 则可跳过此步。</p>
+<p>然后，单击finish, 继续：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232113121219000.png" alt="img"></p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232113256216676.png" alt="img"></p>
+<p>工程文件结构：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232113367466511.png" alt="img"></p>
+<p>上图中各个目录解析：</p>
+<ul>
+<li>deployment descriptor：部署的描述。</li>
+<li>Web App Libraries：自己加的包可以放在里面。</li>
+<li>build：放入编译之后的文件。</li>
+<li>WebContent:放进写入的页面。</li>
+</ul>
+<p>在WebContent文件夹下新建一个test.jsp文件。在下图中可以看到它的默认代码： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;</span><br><span class="line">    pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
+<p>接着我们修改下test.jsp文件代码如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;</span><br><span class="line">    pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;菜鸟教程&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    out.println(&quot;Hello World!&quot;);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>程序运行之前，我们先修改一下浏览器选项:</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/testjsp1.png" alt="img"></p>
+<p>接着我们运行该项目:</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/runas.png" alt="img"></p>
+<p>运行时，弹出如下错误：(如果没有此错误，请忽略)</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232120047932694.png" alt="img"></p>
+<p>原因是，我们之前点击了Tomcat安装包中的startup.bat，这样一来就手动打开了Tomcat服务器，这明显是多余的，因为程序运行时，eclipse会自动开启Tomcat服务器。所以我们先手动关掉tomcat软件，再次运行程序，就行了。控制台信息如下：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232120199803353.png" alt="img"></p>
+<p>浏览器访问 <strong><a href="http://localhost:8080/TomcatTest/test.jsp" target="_blank" rel="noopener">http://localhost:8080/TomcatTest/test.jsp</a></strong>, 即可输出正常结果：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/A72F19CD-4FEA-4AE3-8D91-43B34623EC37.jpg" alt="img"> </p>
+<hr>
+<h2 id="Servlet-实例创建"><a href="#Servlet-实例创建" class="headerlink" title="Servlet 实例创建"></a>Servlet 实例创建</h2><p>我们也可以使用以上环境创建 Servlet 文件，选择 “File–&gt;New–&gt;Servlet”:</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/sns.png" alt="img"></p>
+<p>位于 TomcatTest项目的 /TomcatTest/src 目录下创建 “HelloServlet” 类，包为 “com.runoob.test”:</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/22D8CED0-F2DD-4554-BFBD-2B19D1685FB9.jpg" alt="img"></p>
+<p>HelloServlet.java  代码如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">package com.runoob.test;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import javax.servlet.ServletException;</span><br><span class="line">import javax.servlet.annotation.WebServlet;</span><br><span class="line">import javax.servlet.http.HttpServlet;</span><br><span class="line">import javax.servlet.http.HttpServletRequest;</span><br><span class="line">import javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Servlet implementation class HelloServlet</span><br><span class="line"> */</span><br><span class="line">@WebServlet(&quot;/HelloServlet&quot;)</span><br><span class="line">public class HelloServlet extends HttpServlet &#123;</span><br><span class="line">    private static final long serialVersionUID = 1L;</span><br><span class="line">       </span><br><span class="line">    /**</span><br><span class="line">     * @see HttpServlet#HttpServlet()</span><br><span class="line">     */</span><br><span class="line">    public HelloServlet() &#123;</span><br><span class="line">        super();</span><br><span class="line">        // TODO Auto-generated constructor stub</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">     */</span><br><span class="line">    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;</span><br><span class="line">        // 使用 GBK 设置中文正常显示</span><br><span class="line">        response.setCharacterEncoding(&quot;GBK&quot;);</span><br><span class="line">        response.getWriter().write(&quot;菜鸟教程：http://www.runoob.com&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">     */</span><br><span class="line">    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        doGet(request, response);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建 /TomcatTest/WebContent/WEB-INF/web.xml 文件（如果没有），代码如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;  </span><br><span class="line">&lt;web-app version=&quot;2.5&quot;   </span><br><span class="line">    xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;   </span><br><span class="line">    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;   </span><br><span class="line">    xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee   </span><br><span class="line">    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot;&gt;  </span><br><span class="line">  &lt;servlet&gt;  </span><br><span class="line">     &lt;!-- 类名 --&gt;  </span><br><span class="line">    &lt;servlet-name&gt;HelloServlet&lt;/servlet-name&gt;  </span><br><span class="line">    &lt;!-- 所在的包 --&gt;  </span><br><span class="line">    &lt;servlet-class&gt;com.runoob.test.HelloServlet&lt;/servlet-class&gt;  </span><br><span class="line">  &lt;/servlet&gt;  </span><br><span class="line">  &lt;servlet-mapping&gt;  </span><br><span class="line">    &lt;servlet-name&gt;HelloServlet&lt;/servlet-name&gt;  </span><br><span class="line">    &lt;!-- 访问的网址 --&gt;  </span><br><span class="line">    &lt;url-pattern&gt;/TomcatTest/HelloServlet&lt;/url-pattern&gt;  </span><br><span class="line">    &lt;/servlet-mapping&gt;  </span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure>
+
+<p>接着重启 Tomcat，浏览器访问 <strong><a href="http://localhost:8080/TomcatTest/HelloServlet" target="_blank" rel="noopener">http://localhost:8080/TomcatTest/HelloServlet</a></strong>：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/3E00DBEA-85CA-4F66-A7E9-24C43BC9C756.jpg" alt="img"></p>
+<p>参考文章：<a href="http://www.cnblogs.com/smyhvae/p/4046862.html" target="_blank" rel="noopener">http://www.cnblogs.com/smyhvae/p/4046862.html</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/30/Eclipse-JSPServlet-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/30/JSP%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2019-10-30T10:44:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/30/JSP%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JSP 开发环境搭建</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/30/JSP%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">JSP 开发环境搭建</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/30/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2019-10-30T10:42:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/30/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">hexo搭建个人博客</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/30/jsp%E7%9A%84request%E5%AF%B9%E8%B1%A1/" class="archive-article-date">
-  	<time datetime="2019-10-30T10:40:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/30/jsp%E7%9A%84request%E5%AF%B9%E8%B1%A1/">jsp</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/30/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9/" class="archive-article-date">
-  	<time datetime="2019-10-30T10:29:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/30/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9/">MySQL知识点</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/30/JAVA%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/" class="archive-article-date">
-  	<time datetime="2019-10-30T10:11:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/30/JAVA%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/">JAVA面向对象知识点汇总</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/30/hello-world/" class="archive-article-date">
-  	<time datetime="2019-10-30T09:45:02.130Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/30/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -376,8 +437,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

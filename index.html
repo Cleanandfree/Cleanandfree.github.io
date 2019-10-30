@@ -151,6 +151,495 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Eclipse-JSPServlet-环境搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/30/Eclipse-JSPServlet-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">Eclipse JSP/Servlet 环境搭建</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/30/Eclipse-JSPServlet-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="archive-article-date">
+  	<time datetime="2019-10-30T10:53:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Eclipse-JSP-Servlet-环境搭建"><a href="#Eclipse-JSP-Servlet-环境搭建" class="headerlink" title="Eclipse JSP/Servlet 环境搭建"></a>Eclipse JSP/Servlet 环境搭建</h1><p>本文假定你已安装了 JDK 环境，如未安装，可参阅 <a href=""> Java 开发环境配置 </a>。</p>
+<p>我们可以使用 Eclipse 来搭建 JSP 开发环境，首先我们分别下载一下软件包：</p>
+<ul>
+<li><strong>Eclipse J2EE：</strong><a href="http://www.eclipse.org/downloads/" target="_blank" rel="noopener">http://www.eclipse.org/downloads/</a> </li>
+<li><strong>Tomcat：</strong><a href="http://tomcat.apache.org/download-70.cgi" target="_blank" rel="noopener">http://tomcat.apache.org/download-70.cgi</a> </li>
+</ul>
+<hr>
+<h2 id="Tomcat-下载安装"><a href="#Tomcat-下载安装" class="headerlink" title="Tomcat 下载安装"></a>Tomcat 下载安装</h2><p>你可以根据你的系统下载对应的包(以下以Window系统为例)：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232104286524890.png" alt="img"> </p>
+<p>下载之后，将压缩包解压到D盘（你可以自己选择）： </p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232104410586765.png" alt="img"> </p>
+<p>注意目录名不能有中文和空格。目录介绍如下：</p>
+<ul>
+<li>bin：二进制执行文件。里面最常用的文件是<strong>startup.bat</strong>，如果是 Linux 或 Mac 系统启动文件为 <strong>startup.sh</strong>。</li>
+<li>conf:配置目录。里面最核心的文件是<strong>server.xml</strong>。可以在里面改端口号等。默认端口号是8080，也就是说，此端口号不能被其他应用程序占用。</li>
+<li>lib：库文件。tomcat运行时需要的jar包所在的目录</li>
+<li>logs：日志</li>
+<li>temp：临时产生的文件，即缓存</li>
+<li>webapps：web的应用程序。<strong>web应用放置到此目录下浏览器可以直接访问</strong></li>
+<li>work：编译以后的class文件。</li>
+</ul>
+<p>接着我们可以双击 startup.bat 启动 Tomcat，弹出如下界面：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232105392158264.png" alt="img"></p>
+<p>这个时候，本地的服务器就已经搭建起来了。如果想关闭服务器，可以直接关闭上面的窗口，或者在里面输入Ctrl+C禁止服务。</p>
+<p>接着我们在浏览器中输入 <strong><a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a></strong>，如果弹出如下界面，表示tomcat安装成功并且启动起来了：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/tomcat-index.jpg" alt="img"></p>
+<p>我们现在在浏览器上测试一下它吧： </p>
+<p>首先在D:\apache-tomcat-8.0.14\webapps\ROOT目录中新建一个jsp文件：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232106198557249.jpg" alt="img"></p>
+<p>test.jsp 文件代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; %&gt;</span><br><span class="line">&lt;%</span><br><span class="line">out.print(&quot;菜鸟教程 : http://www.runoob.com&quot;);</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>接着在浏览器中访问地址 <strong><a href="http://localhost:8080/test.jsp" target="_blank" rel="noopener">http://localhost:8080/test.jsp</a></strong>, 输出结果如下：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/test-jsp.jpg" alt="img"></p>
+<hr>
+<h2 id="将-Tomcat-和-Eclipse-相关联"><a href="#将-Tomcat-和-Eclipse-相关联" class="headerlink" title="将 Tomcat 和 Eclipse 相关联"></a>将 Tomcat 和 Eclipse 相关联</h2><p>Eclipse J2EE下载后，解压即可使用，我们打开Java EE ，选择菜单栏Windows–&gt;preferences（Mac 系统为 Eclipse–&gt;偏好设置），弹出如下界面：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232111301681549.png" alt="img"></p>
+<p>上图中，点击”add”的添加按钮，弹出如下界面：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232111442933866.png" alt="img"></p>
+<p>在选项中，我们选择对应的 Tomcat 版本，接着点击 “Next”，选择 Tomcat 的安装目录，并选择我们安装的 Java 环境：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232112245587963.png" alt="img"></p>
+<p>点击 “Finish”，完成配置。</p>
+<h3 id="创建实例"><a href="#创建实例" class="headerlink" title="创建实例"></a>创建实例</h3><p>选择 “File–&gt;New–&gt;Dynamic Web Project”，创建 TomcatTest 项目：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232112541213100.png" alt="img"></p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/302044303245040.png" alt="img"></p>
+<p>点开上图中的红框部分，弹出如下界面：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/8998BEC1-D622-4BD4-A9E6-8B18D2A5F29C.jpg" alt="img"></p>
+<p>注意如果已默认选择了我们之前安装的 Tomcat 和 JDK 则可跳过此步。</p>
+<p>然后，单击finish, 继续：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232113121219000.png" alt="img"></p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232113256216676.png" alt="img"></p>
+<p>工程文件结构：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232113367466511.png" alt="img"></p>
+<p>上图中各个目录解析：</p>
+<ul>
+<li>deployment descriptor：部署的描述。</li>
+<li>Web App Libraries：自己加的包可以放在里面。</li>
+<li>build：放入编译之后的文件。</li>
+<li>WebContent:放进写入的页面。</li>
+</ul>
+<p>在WebContent文件夹下新建一个test.jsp文件。在下图中可以看到它的默认代码： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;</span><br><span class="line">    pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>接着我们修改下test.jsp文件代码如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;</span><br><span class="line">    pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;菜鸟教程&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    out.println(&quot;Hello World!&quot;);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>程序运行之前，我们先修改一下浏览器选项:</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/testjsp1.png" alt="img"></p>
+<p>接着我们运行该项目:</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/runas.png" alt="img"></p>
+<p>运行时，弹出如下错误：(如果没有此错误，请忽略)</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232120047932694.png" alt="img"></p>
+<p>原因是，我们之前点击了Tomcat安装包中的startup.bat，这样一来就手动打开了Tomcat服务器，这明显是多余的，因为程序运行时，eclipse会自动开启Tomcat服务器。所以我们先手动关掉tomcat软件，再次运行程序，就行了。控制台信息如下：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/232120199803353.png" alt="img"></p>
+<p>浏览器访问 <strong><a href="http://localhost:8080/TomcatTest/test.jsp" target="_blank" rel="noopener">http://localhost:8080/TomcatTest/test.jsp</a></strong>, 即可输出正常结果：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/A72F19CD-4FEA-4AE3-8D91-43B34623EC37.jpg" alt="img"> </p>
+<hr>
+<h2 id="Servlet-实例创建"><a href="#Servlet-实例创建" class="headerlink" title="Servlet 实例创建"></a>Servlet 实例创建</h2><p>我们也可以使用以上环境创建 Servlet 文件，选择 “File–&gt;New–&gt;Servlet”:</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/sns.png" alt="img"></p>
+<p>位于 TomcatTest项目的 /TomcatTest/src 目录下创建 “HelloServlet” 类，包为 “com.runoob.test”:</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/22D8CED0-F2DD-4554-BFBD-2B19D1685FB9.jpg" alt="img"></p>
+<p>HelloServlet.java  代码如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">package com.runoob.test;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import javax.servlet.ServletException;</span><br><span class="line">import javax.servlet.annotation.WebServlet;</span><br><span class="line">import javax.servlet.http.HttpServlet;</span><br><span class="line">import javax.servlet.http.HttpServletRequest;</span><br><span class="line">import javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Servlet implementation class HelloServlet</span><br><span class="line"> */</span><br><span class="line">@WebServlet(&quot;/HelloServlet&quot;)</span><br><span class="line">public class HelloServlet extends HttpServlet &#123;</span><br><span class="line">    private static final long serialVersionUID = 1L;</span><br><span class="line">       </span><br><span class="line">    /**</span><br><span class="line">     * @see HttpServlet#HttpServlet()</span><br><span class="line">     */</span><br><span class="line">    public HelloServlet() &#123;</span><br><span class="line">        super();</span><br><span class="line">        // TODO Auto-generated constructor stub</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">     */</span><br><span class="line">    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;</span><br><span class="line">        // 使用 GBK 设置中文正常显示</span><br><span class="line">        response.setCharacterEncoding(&quot;GBK&quot;);</span><br><span class="line">        response.getWriter().write(&quot;菜鸟教程：http://www.runoob.com&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">     */</span><br><span class="line">    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        doGet(request, response);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建 /TomcatTest/WebContent/WEB-INF/web.xml 文件（如果没有），代码如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;  </span><br><span class="line">&lt;web-app version=&quot;2.5&quot;   </span><br><span class="line">    xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;   </span><br><span class="line">    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;   </span><br><span class="line">    xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee   </span><br><span class="line">    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot;&gt;  </span><br><span class="line">  &lt;servlet&gt;  </span><br><span class="line">     &lt;!-- 类名 --&gt;  </span><br><span class="line">    &lt;servlet-name&gt;HelloServlet&lt;/servlet-name&gt;  </span><br><span class="line">    &lt;!-- 所在的包 --&gt;  </span><br><span class="line">    &lt;servlet-class&gt;com.runoob.test.HelloServlet&lt;/servlet-class&gt;  </span><br><span class="line">  &lt;/servlet&gt;  </span><br><span class="line">  &lt;servlet-mapping&gt;  </span><br><span class="line">    &lt;servlet-name&gt;HelloServlet&lt;/servlet-name&gt;  </span><br><span class="line">    &lt;!-- 访问的网址 --&gt;  </span><br><span class="line">    &lt;url-pattern&gt;/TomcatTest/HelloServlet&lt;/url-pattern&gt;  </span><br><span class="line">    &lt;/servlet-mapping&gt;  </span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure>
+
+<p>接着重启 Tomcat，浏览器访问 <strong><a href="http://localhost:8080/TomcatTest/HelloServlet" target="_blank" rel="noopener">http://localhost:8080/TomcatTest/HelloServlet</a></strong>：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2016/01/3E00DBEA-85CA-4F66-A7E9-24C43BC9C756.jpg" alt="img"></p>
+<p>参考文章：<a href="http://www.cnblogs.com/smyhvae/p/4046862.html" target="_blank" rel="noopener">http://www.cnblogs.com/smyhvae/p/4046862.html</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/30/Eclipse-JSPServlet-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JSP开发环境搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/30/JSP%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">JSP 开发环境搭建</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/30/JSP%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="archive-article-date">
+  	<time datetime="2019-10-30T10:44:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JSP-开发环境搭建"><a href="#JSP-开发环境搭建" class="headerlink" title="JSP 开发环境搭建"></a>JSP 开发环境搭建</h1><p>JSP 开发环境是您用来开发、测试和运行 JSP 程序的地方。</p>
+<p>本节将会带您搭建 JSP 开发环境，具体包括以下几个步骤。</p>
+<p>如果你使用的是 Eclipse 环境，可以直接参阅：<a href="http://www.runoob.com/jsp/eclipse-jsp.html" target="_blank" rel="noopener">Eclipse JSP/Servlet 环境搭建</a>。</p>
+<hr>
+<h2 id="配置Java开发工具（JDK）"><a href="#配置Java开发工具（JDK）" class="headerlink" title="配置Java开发工具（JDK）"></a>配置Java开发工具（JDK）</h2><p>这一步涉及 Java JDK 的下载和 PATH 环境变量的配置。 </p>
+<p>您可以从 Oracle 公司的 Java 页面中下载 JDK：<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">Java SE Downloads</a> </p>
+<p>Java JDK 下载完后，请按照给定的指示来安装和配置 JDK。最后，通过设置 PATH 和  JAVA_HOME环境变量来指明包括 java 和 javac 的文件夹路径，通常是 java_install_dir/bin和java_install_dir。 </p>
+<p>假如您用的是 Windows 系统并且 JDK 的安装目录为 C::\jdk1.5.0_20，那么您就需要在 C:\autoexec.bat 文件中添加以下两行： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set PATH=C:\jdk1.5.0_20\bin;%PATH%</span><br><span class="line">set JAVA_HOME=C:\jdk1.5.0_20</span><br></pre></td></tr></table></figure>
+
+<p>或者，在 Windows NT/2000/XP下，您可以直接右击我的电脑图标，选择属性，然后高级，然后环境变量，接下来您就可以很方便地设置 PATH 变量并且确定退出就行了。 </p>
+<p>在 Linux/Unix 系统下，如果 JDK 的安装目录为 /usr/local/jdk1.5.0_20 并且使用的是 C shell，那么您就需要在 .cshrc 文件中添加以下两行： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setenv PATH /usr/local/jdk1.5.0_20/bin:$PATH</span><br><span class="line">setenv JAVA_HOME /usr/local/jdk1.5.0_20</span><br></pre></td></tr></table></figure>
+
+<p>或者，假如您正在使用类似于 Borland JBuilder、Eclipse、IntelliJ IDEA 和 Sun ONE Studio 这样的集成开发环境，可以试着编译并运行一个简单的程序来确定 IDE（集成开发环境）是否已经知道 JDK 的安装目录。 </p>
+<p>本步骤你也可以参考本站<a href="">Java 开发环境配置</a>章节的教程。</p>
+<hr>
+<h2 id="设置Web服务器：Tomcat"><a href="#设置Web服务器：Tomcat" class="headerlink" title="设置Web服务器：Tomcat"></a>设置Web服务器：Tomcat</h2><p>目前，市场上有很多支持 JSP 和 Servlets 开发的 Web 服务器。他们中的一些可以免费下载和使用，Tomcat 就是其中之一。 </p>
+<p>Apache Tomcat 是一个开源软件，可作为独立的服务器来运行 JSP 和 Servlets，也可以集成在 Apache Web Server 中。以下是 Tomcat 的配置方法： </p>
+<ul>
+<li>下载最新版本的 Tomcat：<a href="http://tomcat.apache.org/。" target="_blank" rel="noopener">http://tomcat.apache.org/。</a></li>
+<li></li>
+<li>下载完安装文件后，将压缩文件解压到一个方便的地方，比如 Windows 下的 C:\apache-tomcat-5.5.29 目录或者 Linux/Unix 下的 /usr/local/apache-tomcat-5.5.29 目录，然后创建 CATALINA_HOME 环境变量指向这些目录。 </li>
+</ul>
+<p>在 Windows 机器下，Tomcat 可以通过执行以下命令来启动： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">%CATALINA_HOME%\bin\startup.bat</span><br><span class="line">或者</span><br><span class="line">C:\apache-tomcat-5.5.29\bin\startup.bat</span><br></pre></td></tr></table></figure>
+
+<p>在 Linux/Unix 机器下，Tomcat 可以通过执行以下命令来启动： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$CATALINA_HOME/bin/startup.sh</span><br><span class="line">或者</span><br><span class="line">/usr/local/apache-tomcat-5.5.29/bin/startup.sh</span><br></pre></td></tr></table></figure>
+
+<p>成功启动 Tomcat 后，通过访问 <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a> 便可以使用 Tomcat 自带的一些 web 应用了。假如一切顺利的话，您应该能够看到以下的页面： </p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2014/01/TomcatHomePage.jpg" alt="img"> </p>
+<p>更多关于配置和运行 Tomcat 的信息可以在 Tomcat 提供的文档中找到，或者去 Tomcat 官网查阅：<a href="http://tomcat.apache.org。" target="_blank" rel="noopener">http://tomcat.apache.org。</a> </p>
+<p>在 Windows 机器下，Tomcat 可以通过执行以下命令来停止： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">%CATALINA_HOME%\bin\shutdown</span><br><span class="line">或者</span><br><span class="line">C:\apache-tomcat-5.5.29\bin\shutdown</span><br></pre></td></tr></table></figure>
+
+<p>在 Linux/Unix 机器下，Tomcat 可以通过执行以下命令来停止： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$CATALINA_HOME/bin/shutdown.sh</span><br><span class="line">或者</span><br><span class="line">/usr/local/apache-tomcat-5.5.29/bin/shutdown.sh</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="设置-CLASSPATH-环境变量"><a href="#设置-CLASSPATH-环境变量" class="headerlink" title="设置 CLASSPATH 环境变量"></a>设置 CLASSPATH 环境变量</h2><p>由于 servlets 不是 Java SE 的一部分，所以您必须标示出 servlet 类的编译器。 </p>
+<p>假如您用的是 Windows 机器，您需要在 C:\autoexec.bat 文件中添加以下两行： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set CATALINA=C:\apache-tomcat-5.5.29</span><br><span class="line">set CLASSPATH=%CATALINA%\common\lib\jsp-api.jar;%CLASSPATH%</span><br></pre></td></tr></table></figure>
+
+<p>或者，在 Windows NT/2000/XP 下，您只要右击我的电脑，选择属性，然后点击高级，然后点击环境变量，接下来便可以设置 CLASSPATH 变量并且确定退出即可。 </p>
+<p>在 Linux/Unix 机器下，假如您使用的是 C shell，那么您就需要在 .cshrc 文件中添加以下两行： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setenv CATALINA=/usr/local/apache-tomcat-5.5.29</span><br><span class="line">setenv CLASSPATH $CATALINA/common/lib/jsp-api.jar:$CLASSPATH</span><br></pre></td></tr></table></figure>
+
+<p>注意：如果您的开发路径是 C:\JSPDev (Windows)或者 /usr/JSPDev (Linux/Unix)，那么您就需要将这些路径添加进 CLASSPATH 变量中。 </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/30/JSP%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hexo搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/30/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">hexo搭建个人博客</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/30/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
+  	<time datetime="2019-10-30T10:42:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><h4 id="第一步：删除"><a href="#第一步：删除" class="headerlink" title="第一步：删除"></a>第一步：删除</h4><blockquote>
+<p>因为是重新创建，所以要把之前的blog目录删掉。</p>
+</blockquote>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/1.png" alt="img"></p>
+<h4 id="第二步：安装框架"><a href="#第二步：安装框架" class="headerlink" title="第二步：安装框架"></a>第二步：安装框架</h4><p>在<code>hexo</code>目录中打开<code>Git Bash</code></p>
+<p>输入代码：<code>npm install hexo-cli -g</code></p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/2.png" alt="img"></p>
+<blockquote>
+<p>该过程根据电脑内存的不同可能会持续30s-60s，耐心等待</p>
+</blockquote>
+<h4 id="第三步：创建blog"><a href="#第三步：创建blog" class="headerlink" title="第三步：创建blog"></a>第三步：创建blog</h4><p>输入代码：<code>hexo init blog</code></p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/3.png" alt="img"></p>
+<blockquote>
+<p>该过程也是会持续一段时间</p>
+</blockquote>
+<h4 id="第四步：切换目录"><a href="#第四步：切换目录" class="headerlink" title="第四步：切换目录"></a>第四步：切换目录</h4><p>输入代码：<code>cd blog</code></p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/4.png" alt="img"></p>
+<p><em>查看是否切换</em></p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/5.png" alt="img"></p>
+<h4 id="第五步：安装组件"><a href="#第五步：安装组件" class="headerlink" title="第五步：安装组件"></a>第五步：安装组件</h4><p>输入代码：<code>npm install</code></p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/6.png" alt="img"></p>
+<h4 id="第六步：生成静态页面"><a href="#第六步：生成静态页面" class="headerlink" title="第六步：生成静态页面"></a>第六步：生成静态页面</h4><p>输入代码：<code>hexo g</code></p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/7.png" alt="img"></p>
+<h4 id="第七步：启动本地服务器"><a href="#第七步：启动本地服务器" class="headerlink" title="第七步：启动本地服务器"></a>第七步：启动本地服务器</h4><p>输入代码：<code>hexo s</code></p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/8.png" alt="img"></p>
+<p>然后在浏览器输入网址：<code>localhost:4000</code></p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/9.png" alt="img"></p>
+<p>这只是本地博客，下面配置远端博客</p>
+<p>在命令界面按<code>Ctrl</code>+<code>C</code>结束本地服务器</p>
+<h4 id="第八步：布置deployer目录"><a href="#第八步：布置deployer目录" class="headerlink" title="第八步：布置deployer目录"></a>第八步：布置deployer目录</h4><p>输入代码：<code>npm install --save hexo-deployer-git</code></p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/10.png" alt="img"></p>
+<blockquote>
+<p>该过程需要一段时间的加载，耐心等待！</p>
+</blockquote>
+<h4 id="第九步：修改-config-yml文件"><a href="#第九步：修改-config-yml文件" class="headerlink" title="第九步：修改_config.yml文件"></a>第九步：修改_config.yml文件</h4><p>打开<code>hexo</code>根目录下的<code>_config.yml</code>文件，修改其<code>deploy</code>标签的内容(应该在最下面)</p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/11.png" alt="img"></p>
+<p><strong>repo后面的Frightings修改成你们自己的名字！冒号后面跟个空格！</strong></p>
+<p>修改后输入代码：<code>hexo clean</code>清理缓存，</p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/12.png" alt="img"></p>
+<p>然后输入代码：<code>hexo g</code>重新布置静态页面。</p>
+<h4 id="第十步：布置远端博客"><a href="#第十步：布置远端博客" class="headerlink" title="第十步：布置远端博客"></a>第十步：布置远端博客</h4><p>输入代码：<code>hexo d</code></p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/13.png" alt="img"></p>
+<p>然后他会让你告诉他，你是谁~（Please tell me who you are）</p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/14.png" alt="img"></p>
+<p>接着咱们就告诉他，咱是谁~</p>
+<p>输入代码：<code>git config --global user.email &quot;youremail@qq.com&quot;</code></p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/15.png" alt="img"></p>
+<p><strong>注意！ 这边<a href="mailto:youremail@qq.com" target="_blank" rel="noopener">youremail@qq.com</a>不是让你照搬抄上！是让你写上你自己的邮箱！</strong></p>
+<p>接着输入代码：<code>git config --global user.name &quot;yourname&quot;</code></p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/16.png" alt="img"></p>
+<p><strong>同样，这边yourname不是让你照搬抄上！是让你写上你自己的用户名。</strong></p>
+<p>然后依次输入代码:<code>hexo clean</code>清理下缓存，</p>
+<p><code>hexo g</code>生成静态页面，<code>hexo d</code>布置远端。</p>
+<h4 id="第十一步：查看效果"><a href="#第十一步：查看效果" class="headerlink" title="第十一步：查看效果"></a>第十一步：查看效果</h4><p>然后在网站中输入你的博客地址<code>yourname.github.io</code>就会出现你的博客。</p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/17.png" alt="img"></p>
+<h4 id="第十二步：写博客"><a href="#第十二步：写博客" class="headerlink" title="第十二步：写博客"></a>第十二步：写博客</h4><p>输入代码：<code>hexo new &quot;我的第一篇博客&quot;</code></p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/18.png" alt="img"></p>
+<p>这上面写出了你的博客路径，找到他进行编辑。</p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/19.png" alt="img"></p>
+<p>打开后：</p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/20.png" alt="img"></p>
+<p>上面有个<code>tags</code>标签,目前没什么用，先<strong>删除</strong>，要不然可能会编译错误。</p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/21.png" alt="img"></p>
+<p>编辑完之后：</p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/22.png" alt="img"></p>
+<h4 id="第十三步：查看效果"><a href="#第十三步：查看效果" class="headerlink" title="第十三步：查看效果"></a>第十三步：查看效果</h4><p>十二步完成后，依次输入代码：<code>hexo clean</code>清理缓存，</p>
+<p>输入代码：<code>hexo g</code>生成静态页面，</p>
+<p>可以发现里面的<code>INFO</code>项中加载了自己写的博客。</p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/23.png" alt="img"></p>
+<p>输入代码：<code>hexo d</code> 缓存到GitHub。</p>
+<p>然后再刷新一下自己的博客地址，可以发现自己写的博客已经显示了。</p>
+<p><img src="https://czongz.github.io/2019/10/10/hexo-da-jian-ge-ren-bo-ke/24.png" alt="img"></p>
+<p><strong>如果需要继续添加文章，也是相同的步骤和代码。</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/30/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-jsp的request对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/30/jsp%E7%9A%84request%E5%AF%B9%E8%B1%A1/">jsp</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/30/jsp%E7%9A%84request%E5%AF%B9%E8%B1%A1/" class="archive-article-date">
+  	<time datetime="2019-10-30T10:40:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jsp的request对象主要方法"><a href="#jsp的request对象主要方法" class="headerlink" title="jsp的request对象主要方法"></a>jsp的request对象主要方法</h3><h6 id="request对象的方法非常多，只写其中常用的几种方法。"><a href="#request对象的方法非常多，只写其中常用的几种方法。" class="headerlink" title="request对象的方法非常多，只写其中常用的几种方法。"></a>request对象的方法非常多，只写其中常用的几种方法。</h6><ul>
+<li><p><strong>getAttribute(String name);</strong>这个方法可以取出<strong>name</strong>属性的值，<strong>name</strong>属性的值可以用<strong>setAttribute(String name,Object o);</strong>方法赋值，如果没有对其赋值，则默认<strong>name</strong>为<strong>null</strong>;    </p>
+</li>
+<li><p><strong>getContexntPath();</strong>这个方法可以获取服务器上下文的路径；</p>
+</li>
+<li><p><strong>getCookies();</strong>这个方法可以获取客户端的Cookies（一个保存在客户机中的简单的文本文件）；</p>
+</li>
+<li><p><strong>getHeader(String name)</strong>这个方法可以获取指定名称的HTTP报头的属性值；</p>
+</li>
+<li><p><strong>getParameter(String name)</strong>这个方法可以获取客户端提交到服务器的参数；</p>
+</li>
+<li><p><strong>getServerName()</strong>这个方法可以获得服务器的名称</p>
+</li>
+<li><p><strong>getServerPort()</strong>这个方法可以获得服务器的访问端口</p>
+</li>
+<li><p><strong>setAttribute(String name,Object o);</strong>对name属性赋值</p>
+</li>
+<li><p><strong>removeAttribute(String name)</strong>这个方法移除指定名称的属性</p>
+</li>
+<li><p><strong>getRemoteAddr()</strong>这个方法返回客户端的IP地址</p>
+<h2 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h2></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"gb2312"</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;request实例&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;%</span><br><span class="line">	request.setAttribute(<span class="string">"attr"</span>, <span class="string">"hello!"</span>);</span><br><span class="line">	out.print(<span class="string">"attr的值"</span>+request.getAttribute(<span class="string">"attr"</span>)+<span class="string">"&lt;br&gt;"</span>);</span><br><span class="line">	out.print(<span class="string">"上下文路径"</span>+request.getContextPath()+<span class="string">"&lt;br&gt;"</span>);</span><br><span class="line">	out.print(<span class="string">"Cookies:"</span>+request.getCookies()+<span class="string">"&lt;br&gt;"</span>);</span><br><span class="line">	out.print(<span class="string">"Host:"</span>+request.getHeader(<span class="string">"Host"</span>)+<span class="string">"&lt;br&gt;"</span>);</span><br><span class="line">	out.print(<span class="string">"服务器名称："</span>+request.getServerName()+<span class="string">"&lt;br&gt;"</span>);</span><br><span class="line">	out.print(<span class="string">"服务器端口："</span>+request.getServerPort()+<span class="string">"&lt;br&gt;"</span>);</span><br><span class="line">	out.print(<span class="string">"客户端的IP地址："</span>+request.getRemoteAddr()+<span class="string">"&lt;br&gt;"</span>);</span><br><span class="line">	request.removeAttribute(<span class="string">"attr"</span>);</span><br><span class="line">	out.print(<span class="string">"属性移除后的attr的值："</span>+request.getAttribute(<span class="string">"attr"</span>)+<span class="string">"&lt;br&gt;"</span>);</span><br><span class="line">	</span><br><span class="line">%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="结果："><a href="#结果：" class="headerlink" title="结果："></a>结果：</h3><img src="http://a1.qpic.cn/psb?/V13S9xI31Px2LW/p5RYDG8GnkBkSSMOzIUH7uJq0KspJo3TBS*Hf.Iwp9M!/c/dFQBAAAAAAAA&ek=1&kp=1&pt=0&bo=nwEkAZ8BJAEDGTw!&tl=1&vuin=1458566939&tm=1571918400&sce=60-2-2&rf=0-0" style="zoom:150%;" />
+
+<ul>
+<li>补充一个<strong>request.setCharacterEncoding(“utf-8”);</strong>用来改变传递参数的编码</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/30/jsp%E7%9A%84request%E5%AF%B9%E8%B1%A1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MySQL知识点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
