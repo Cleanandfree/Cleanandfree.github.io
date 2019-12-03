@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>JSP Cookie 处理 ~ Hexo</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
+  
+
+
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Hexo</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              <p class="mt-3">Sunday, December 1st 2019, 10:58 am</p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h1 id="JSP-Cookie-处理"><a href="#JSP-Cookie-处理" class="headerlink" title="JSP Cookie 处理"></a>JSP Cookie 处理</h1><p>Cookie 是存储在客户机的文本文件，它们保存了大量轨迹信息。在 Servlet 技术基础上，JSP 显然能够提供对 HTTP cookie 的支持。</p>
+<p>通常有三个步骤来识别回头客：</p>
+<ul>
+<li>​        服务器脚本发送一系列 cookie 至浏览器。比如名字，年龄，ID 号码等等。</li>
+<li>​        浏览器在本地机中存储这些信息，以备不时之需。</li>
+<li>​        当下一次浏览器发送任何请求至服务器时，它会同时将这些 cookie 信息发送给服务器，然后服务器使用这些信息来识别用户或者干些其它事情。</li>
+</ul>
+<p>本章节将会传授您如何去设置或重设 cookie 的方法，还有如何访问它们及如何删除它们。</p>
+<blockquote>
+<p>JSP Cookie 处理需要对中文进行编码与解码，方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String   str   =   java.net.URLEncoder.encode(&quot;中文&quot;, &quot;UTF-8&quot;);            //编码</span><br><span class="line">String   str   =   java.net.URLDecoder.decode(&quot;编码后的字符串&quot;,&quot;UTF-8&quot;);   // 解码</span><br></pre></td></tr></table></figure>
+</blockquote>
+<hr>
+<h2 id="Cookie-剖析"><a href="#Cookie-剖析" class="headerlink" title="Cookie 剖析"></a>Cookie 剖析</h2><p>Cookie 通常在 HTTP 信息头中设置（虽然 JavaScript 能够直接在浏览器中设置 cookie）。在 JSP 中，设置一个 cookie 需要发送如下的信息头给服务器： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Date: Fri, 04 Feb 2015 21:03:38 GMT</span><br><span class="line">Server: Apache/1.3.9 (UNIX) PHP/4.0b3</span><br><span class="line">Set-Cookie: name=runoob; expires=Friday, 04-Feb-17 22:03:38 GMT; </span><br><span class="line">                 path=/; domain=runoob.com</span><br><span class="line">Connection: close</span><br><span class="line">Content-Type: text/html</span><br></pre></td></tr></table></figure>
+
+<p>正如您所见，Set-Cookie 信息头包含一个键值对，一个 GMT（格林尼治标准）时间，一个路径，一个域名。键值对会被编码为URL。有效期域是个指令，告诉浏览器在什么时候之后就可以清除这个 cookie。</p>
+<p>如果浏览器被配置成可存储 cookie，那么它将会保存这些信息直到过期。如果用户访问的任何页面匹配了 cookie 中的路径和域名，那么浏览器将会重新将这个 cookie 发回给服务器。浏览器端的信息头长得就像下面这样： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.0</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">User-Agent: Mozilla/4.6 (X11; I; Linux 2.2.6-15apmac ppc)</span><br><span class="line">Host: zink.demon.co.uk:1126</span><br><span class="line">Accept: image/gif, */*</span><br><span class="line">Accept-Encoding: gzip</span><br><span class="line">Accept-Language: en</span><br><span class="line">Accept-Charset: iso-8859-1,*,utf-8</span><br><span class="line">Cookie: name=xyz</span><br></pre></td></tr></table></figure>
+
+<p>JSP 脚本通过 request 对象中的 getCookies() 方法来访问这些 cookie，这个方法会返回一个 Cookie 对象的数组。</p>
+<hr>
+<h2 id="Servlet-Cookie-方法"><a href="#Servlet-Cookie-方法" class="headerlink" title="Servlet Cookie 方法"></a>Servlet Cookie 方法</h2><p>下表列出了 Cookie 对象中常用的方法：</p>
+<table>
+<thead>
+<tr>
+<th><strong>序号</strong></th>
+<th><strong>方法</strong> <strong>&amp;</strong> <strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>public void setDomain(String pattern)</strong>                设置 cookie 的域名，比如 runoob.com</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>public String getDomain()</strong>                获取 cookie 的域名，比如 runoob.com</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>public void setMaxAge(int expiry)</strong>                设置 cookie 有效期，以秒为单位，默认有效期为当前session的存活时间</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>public int getMaxAge()</strong>                获取 cookie 有效期，以秒为单位，默认为-1 ，表明cookie会活到浏览器关闭为止</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>public String getName()</strong>                返回 cookie 的名称，名称创建后将不能被修改</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>public void setValue(String newValue)</strong>                设置 cookie 的值</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>public String getValue()</strong>                获取cookie的值</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>public void setPath(String uri)</strong>                设置 cookie 的路径，默认为当前页面目录下的所有 URL，还有此目录下的所有子目录</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>public String getPath()</strong>                获取 cookie 的路径</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>public void setSecure(boolean flag)</strong>                指明 cookie 是否要加密传输</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>public void setComment(String purpose)</strong>                设置注释描述 cookie 的目的。当浏览器将 cookie 展现给用户时，注释将会变得非常有用</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>public String getComment()</strong>                返回描述 cookie 目的的注释，若没有则返回 null</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="使用-JSP-设置-cookie"><a href="#使用-JSP-设置-cookie" class="headerlink" title="使用 JSP 设置 cookie"></a>使用 JSP 设置 cookie</h2><p>使用 JSP 设置 cookie 包含三个步骤：</p>
+<p><strong>(1)创建一个 cookie 对象：</strong> 调用 cookie 的构造函数，使用一个 cookie 名称和值做参数，它们都是字符串。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cookie cookie = new Cookie(&quot;key&quot;,&quot;value&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>请务必牢记，名称和值中都不能包含空格或者如下的字符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ ] ( ) = , &quot; / ? @ : ;</span><br></pre></td></tr></table></figure>
+
+<p><strong>(2) 设置有效期：</strong>调用 setMaxAge() 函数表明 cookie 在多长时间（以秒为单位）内有效。下面的操作将有效期设为了 24 小时。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cookie.setMaxAge(60*60*24);</span><br></pre></td></tr></table></figure>
+
+<p><strong>(3) 将 cookie 发送至 HTTP 响应头中：</strong>调用 response.addCookie() 函数来向 HTTP 响应头中添加 cookie。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.addCookie(cookie);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="实例演示"><a href="#实例演示" class="headerlink" title="实例演示"></a>实例演示</h3><p>main.jsp 文件代码如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;</span><br><span class="line">    pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;%@ page import=&quot;java.net.*&quot; %&gt;</span><br><span class="line">&lt;%</span><br><span class="line">   // 编码，解决中文乱码   </span><br><span class="line">   String str = URLEncoder.encode(request.getParameter(&quot;name&quot;),&quot;utf-8&quot;);  </span><br><span class="line">   // 设置 name 和 url cookie </span><br><span class="line">   Cookie name = new Cookie(&quot;name&quot;,</span><br><span class="line">           str);</span><br><span class="line">   Cookie url = new Cookie(&quot;url&quot;,</span><br><span class="line">              request.getParameter(&quot;url&quot;));</span><br><span class="line"></span><br><span class="line">   // 设置cookie过期时间为24小时。</span><br><span class="line">   name.setMaxAge(60*60*24); </span><br><span class="line">   url.setMaxAge(60*60*24); </span><br><span class="line"></span><br><span class="line">   // 在响应头部添加cookie</span><br><span class="line">   response.addCookie( name );</span><br><span class="line">   response.addCookie( url );</span><br><span class="line">%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;设置 Cookie&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;h1&gt;设置 Cookie&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;ul&gt;</span><br><span class="line">&lt;li&gt;&lt;p&gt;&lt;b&gt;网站名:&lt;/b&gt;</span><br><span class="line">   &lt;%= request.getParameter(&quot;name&quot;)%&gt;</span><br><span class="line">&lt;/p&gt;&lt;/li&gt;</span><br><span class="line">&lt;li&gt;&lt;p&gt;&lt;b&gt;网址:&lt;/b&gt;</span><br><span class="line">   &lt;%= request.getParameter(&quot;url&quot;)%&gt;</span><br><span class="line">&lt;/p&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>以下是一个简单的 HTML 表单通过 GET 方法将客户端数据提交到 main.jsp 文件中，并设置 cookie：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;form action=&quot;main.jsp&quot; method=GET&gt;</span><br><span class="line">站点名: &lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;</span><br><span class="line">&lt;br /&gt;</span><br><span class="line">网址: &lt;input type=&quot;text&quot; name=&quot;url&quot; /&gt;</span><br><span class="line">&lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>将以上 HTML 代码保存到 test.htm 文件中。 </p>
+<p>将该文件放置于当前 jsp 项目的 WebContent 目录下（与 main.jsp 同一个目录）。</p>
+<p>通过访问 <a href="http://localhost:8080/testjsp/test.html" target="_blank" rel="noopener">http://localhost:8080/testjsp/test.html</a> 提交表单数据到 main.jsp 文件，演示 Gif 图如下所示：</p>
+<p><img src="https:////www.runoob.com/wp-content/uploads/2014/01/jsp6.gif" srcset="/img/loading.gif" alt="img"> </p>
+<p>试着输入 “站点名” 和 “网址”，然后点击提交按钮，它将会在您的屏幕中显示 “站点名” 和 “网址”，并且设置 “站点名” 和 “网址” 的两个 cookie。</p>
+<hr>
+<h2 id="使用-JSP-读取-Cookie"><a href="#使用-JSP-读取-Cookie" class="headerlink" title="使用 JSP 读取 Cookie"></a>使用 JSP 读取 Cookie</h2><p>想要读取 cookie，您就需要调用 request.getCookies() 方法来获得一个 javax.servlet.http.Cookie 对象的数组，然后遍历这个数组，使用 getName() 方法和 getValue() 方法来获取每一个 cookie 的名称和值。</p>
+<h3 id="让我们来读取上个例子中的cookie-以下为-cookie-jsp-文件代码：-lt-page-language-quot-java-quot-contentType-quot-text-html-charset-UTF-8-quot-pageEncoding-quot-UTF-8-quot-gt-lt-page-import-quot-java-net-quot-gt-获取-Cookie-lt-Cookie-cookie-null-Cookie-cookies-null-获取-cookies-的数据-是一个数组-cookies-request-getCookies-if-cookies-null-out-println-quot-查找-Cookie-名与值-quot-for-int-i-0-i-lt-cookies-length-i-cookie-cookies-i-out-print-quot-参数名-quot-cookie-getName-out-print-quot-quot-out-print-quot-参数值-quot-URLDecoder-decode-cookie-getValue-quot-utf-8-quot-quot-quot-out-print-quot-quot-else-out-println-quot-没有发现-Cookie-quot-gt-浏览器访问后，输出结果为：-使用-JSP-删除-cookie删除-cookie-非常简单。如果您想要删除一个-cookie，按照下面给的步骤来做就行了：-获取一个已经存在的-cookie-然后存储在-Cookie-对象中。-将-cookie-的有效期设置为-0。-将这个-cookie-重新添加进响应头中。实例演示下面的程序删除一个名为-“name”-的-cookie，当您第二次运行-cookie-jsp时，name-将会为-null。-lt-page-language-quot-java-quot-contentType-quot-text-html-charset-UTF-8-quot-pageEncoding-quot-UTF-8-quot-gt-lt-page-import-quot-java-net-quot-gt-获取-Cookie-lt-Cookie-cookie-null-Cookie-cookies-null-获取当前域名下的cookies，是一个数组-cookies-request-getCookies-if-cookies-null-out-println-quot-查找-Cookie-名与值-quot-for-int-i-0-i-lt-cookies-length-i-cookie-cookies-i-if-cookie-getName-compareTo-quot-name-quot-0-cookie-setMaxAge-0-response-addCookie-cookie-out-print-quot-删除-Cookie-quot-cookie-getName-quot-quot-out-print-quot-参数名-quot-cookie-getName-out-print-quot-quot-out-print-quot-参数值-quot-URLDecoder-decode-cookie-getValue-quot-utf-8-quot-quot-quot-out-print-quot-quot-else-out-println-quot-没有发现-Cookie-quot-gt-通过浏览器访问，输出结果为：再次访问-http-localhost-8080-testjsp-cookie-jsp，将会得到如下结果：可以看到名为-“name”-的-cookie-已经不见了。您也可以手动在浏览器中删除-cookie。IE-浏览器通过点击-Tools-菜单项，然后选择-Internet-Options，点击-Delete-Cookies，就能删除所有-cookie-。"><a href="#让我们来读取上个例子中的cookie-以下为-cookie-jsp-文件代码：-lt-page-language-quot-java-quot-contentType-quot-text-html-charset-UTF-8-quot-pageEncoding-quot-UTF-8-quot-gt-lt-page-import-quot-java-net-quot-gt-获取-Cookie-lt-Cookie-cookie-null-Cookie-cookies-null-获取-cookies-的数据-是一个数组-cookies-request-getCookies-if-cookies-null-out-println-quot-查找-Cookie-名与值-quot-for-int-i-0-i-lt-cookies-length-i-cookie-cookies-i-out-print-quot-参数名-quot-cookie-getName-out-print-quot-quot-out-print-quot-参数值-quot-URLDecoder-decode-cookie-getValue-quot-utf-8-quot-quot-quot-out-print-quot-quot-else-out-println-quot-没有发现-Cookie-quot-gt-浏览器访问后，输出结果为：-使用-JSP-删除-cookie删除-cookie-非常简单。如果您想要删除一个-cookie，按照下面给的步骤来做就行了：-获取一个已经存在的-cookie-然后存储在-Cookie-对象中。-将-cookie-的有效期设置为-0。-将这个-cookie-重新添加进响应头中。实例演示下面的程序删除一个名为-“name”-的-cookie，当您第二次运行-cookie-jsp时，name-将会为-null。-lt-page-language-quot-java-quot-contentType-quot-text-html-charset-UTF-8-quot-pageEncoding-quot-UTF-8-quot-gt-lt-page-import-quot-java-net-quot-gt-获取-Cookie-lt-Cookie-cookie-null-Cookie-cookies-null-获取当前域名下的cookies，是一个数组-cookies-request-getCookies-if-cookies-null-out-println-quot-查找-Cookie-名与值-quot-for-int-i-0-i-lt-cookies-length-i-cookie-cookies-i-if-cookie-getName-compareTo-quot-name-quot-0-cookie-setMaxAge-0-response-addCookie-cookie-out-print-quot-删除-Cookie-quot-cookie-getName-quot-quot-out-print-quot-参数名-quot-cookie-getName-out-print-quot-quot-out-print-quot-参数值-quot-URLDecoder-decode-cookie-getValue-quot-utf-8-quot-quot-quot-out-print-quot-quot-else-out-println-quot-没有发现-Cookie-quot-gt-通过浏览器访问，输出结果为：再次访问-http-localhost-8080-testjsp-cookie-jsp，将会得到如下结果：可以看到名为-“name”-的-cookie-已经不见了。您也可以手动在浏览器中删除-cookie。IE-浏览器通过点击-Tools-菜单项，然后选择-Internet-Options，点击-Delete-Cookies，就能删除所有-cookie-。" class="headerlink" title="让我们来读取上个例子中的cookie, 以下为 cookie.jsp 文件代码：&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;    pageEncoding=&quot;UTF-8&quot;%&gt; &lt;%@ page import=&quot;java.net.*&quot; %&gt;   获取 Cookie  &lt;%   Cookie cookie = null;   Cookie[] cookies = null;   // 获取 cookies 的数据,是一个数组   cookies = request.getCookies();   if( cookies != null ){      out.println(&quot; 查找 Cookie 名与值&quot;);      for (int i = 0; i &lt; cookies.length; i++){         cookie = cookies[i];                 out.print(&quot;参数名 : &quot; + cookie.getName());         out.print(&quot; &quot;);         out.print(&quot;参数值: &quot; + URLDecoder.decode(cookie.getValue(), &quot;utf-8&quot;) +&quot;  &quot;);         out.print(&quot;------------------------------------ &quot;);      }  }else{      out.println(&quot;没有发现 Cookie&quot;);  } %&gt;浏览器访问后，输出结果为：     使用 JSP 删除 cookie删除 cookie 非常简单。如果您想要删除一个 cookie，按照下面给的步骤来做就行了：        获取一个已经存在的 cookie 然后存储在 Cookie 对象中。        将 cookie 的有效期设置为 0。        将这个 cookie 重新添加进响应头中。实例演示下面的程序删除一个名为 “name” 的 cookie，当您第二次运行 cookie.jsp时，name 将会为 null。&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;    pageEncoding=&quot;UTF-8&quot;%&gt; &lt;%@ page import=&quot;java.net.*&quot; %&gt;   获取 Cookie  &lt;%   Cookie cookie = null;   Cookie[] cookies = null;   // 获取当前域名下的cookies，是一个数组   cookies = request.getCookies();   if( cookies != null ){    out.println(&quot; 查找 Cookie 名与值&quot;);      for (int i = 0; i &lt; cookies.length; i++){         cookie = cookies[i];         if((cookie.getName( )).compareTo(&quot;name&quot;) == 0 ){            cookie.setMaxAge(0);            response.addCookie(cookie);            out.print(&quot;删除 Cookie: &quot; +             cookie.getName( ) + &quot; &quot;);         }         out.print(&quot;参数名 : &quot; + cookie.getName());         out.print(&quot; &quot;);         out.print(&quot;参数值: &quot; + URLDecoder.decode(cookie.getValue(), &quot;utf-8&quot;) +&quot;  &quot;);         out.print(&quot;------------------------------------ &quot;);      }  }else{    out.println(&quot;没有发现 Cookie&quot;);  } %&gt;通过浏览器访问，输出结果为：再次访问 http://localhost:8080/testjsp/cookie.jsp，将会得到如下结果：可以看到名为 “name” 的 cookie 已经不见了。您也可以手动在浏览器中删除 cookie。IE 浏览器通过点击 Tools 菜单项，然后选择 Internet Options，点击 Delete Cookies，就能删除所有 cookie 。"></a>让我们来读取上个例子中的cookie, 以下为 cookie.jsp 文件代码：<code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;    pageEncoding=&quot;UTF-8&quot;%&gt; &lt;%@ page import=&quot;java.net.*&quot; %&gt;   获取 Cookie  &lt;%   Cookie cookie = null;   Cookie[] cookies = null;   // 获取 cookies 的数据,是一个数组   cookies = request.getCookies();   if( cookies != null ){      out.println(&quot; 查找 Cookie 名与值&quot;);      for (int i = 0; i &lt; cookies.length; i++){         cookie = cookies[i];                 out.print(&quot;参数名 : &quot; + cookie.getName());         out.print(&quot; &quot;);         out.print(&quot;参数值: &quot; + URLDecoder.decode(cookie.getValue(), &quot;utf-8&quot;) +&quot;  &quot;);         out.print(&quot;------------------------------------ &quot;);      }  }else{      out.println(&quot;没有发现 Cookie&quot;);  } %&gt;</code>浏览器访问后，输出结果为： <img src="https:////www.runoob.com/wp-content/uploads/2014/01/C6A7341F-029A-4244-8B38-BE010E391091.jpg" srcset="/img/loading.gif" alt="img">    使用 JSP 删除 cookie删除 cookie 非常简单。如果您想要删除一个 cookie，按照下面给的步骤来做就行了：        获取一个已经存在的 cookie 然后存储在 Cookie 对象中。        将 cookie 的有效期设置为 0。        将这个 cookie 重新添加进响应头中。实例演示下面的程序删除一个名为 “name” 的 cookie，当您第二次运行 cookie.jsp时，name 将会为 null。<code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;    pageEncoding=&quot;UTF-8&quot;%&gt; &lt;%@ page import=&quot;java.net.*&quot; %&gt;   获取 Cookie  &lt;%   Cookie cookie = null;   Cookie[] cookies = null;   // 获取当前域名下的cookies，是一个数组   cookies = request.getCookies();   if( cookies != null ){    out.println(&quot; 查找 Cookie 名与值&quot;);      for (int i = 0; i &lt; cookies.length; i++){         cookie = cookies[i];         if((cookie.getName( )).compareTo(&quot;name&quot;) == 0 ){            cookie.setMaxAge(0);            response.addCookie(cookie);            out.print(&quot;删除 Cookie: &quot; +             cookie.getName( ) + &quot; &quot;);         }         out.print(&quot;参数名 : &quot; + cookie.getName());         out.print(&quot; &quot;);         out.print(&quot;参数值: &quot; + URLDecoder.decode(cookie.getValue(), &quot;utf-8&quot;) +&quot;  &quot;);         out.print(&quot;------------------------------------ &quot;);      }  }else{    out.println(&quot;没有发现 Cookie&quot;);  } %&gt;</code>通过浏览器访问，输出结果为：<img src="https:////www.runoob.com/wp-content/uploads/2014/01/C6A7341F-029A-4244-8B38-BE010E391091.jpg" srcset="/img/loading.gif" alt="img">再次访问 <strong><a href="http://localhost:8080/testjsp/cookie.jsp" target="_blank" rel="noopener">http://localhost:8080/testjsp/cookie.jsp</a></strong>，将会得到如下结果：<img src="https:////www.runoob.com/wp-content/uploads/2014/01/7BF1C669-F7A4-4245-B7B0-B79BBB272604.jpg" srcset="/img/loading.gif" alt="img">可以看到名为 “name” 的 cookie 已经不见了。您也可以手动在浏览器中删除 cookie。IE 浏览器通过点击 Tools 菜单项，然后选择 Internet Options，点击 Delete Cookies，就能删除所有 cookie 。</h3>
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+              <span id="/2019/12/01/JSP-Cookie-处理/" class="visitors leancloud_visitors" data-flag-title="JSP Cookie 处理">
+                <em id="visitors-text" class="post-meta-item-text"></em>
+                <i id="visitors-count"></i>
+              </span>
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;TOC</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "JSP Cookie 处理&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $('#post').find('img').each(
+      function () {
+        var _this = $(this);
+        var _src = _this.attr("src");
+        _this.wrap('<a data-fancybox="images" href="' + _src + '" ></a>');
+      }
+    );
+  </script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+
+</body>
+</html>

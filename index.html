@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 
@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Mr.ma</title>
+  <title>Hexo</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -100,7 +100,7 @@
 </nav>
 
     <div class="view intro-2" id="background"
-         style="background: url('/img/default.jpg')no-repeat center center;
+         style="background: url('/img/default.png')no-repeat center center;
            background-size: cover;
            background-attachment: fixed;">
       <div class="full-bg-img">
@@ -133,6 +133,94 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/01/JSP-Cookie-%E5%A4%84%E7%90%86/">
+        <p class="h4 index-header">JSP Cookie 处理</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">JSP Cookie 处理Cookie 是存储在客户机的文本文件，它们保存了大量轨迹信息。在 Servlet 技术基础上，JSP 显然能够提供对 HTTP cookie 的支持。
+通常有三个步骤来识别回头客：
+
+​        服务器脚本发送一系列 cookie 至浏览器。比如名字，年龄，ID 号码等等。
+​        浏览器在本地机中存储这些信息，以备不时之需。
+​        当下一次浏览器发送任何请求至服务器时，它会同时将这些 cookie 信息发送给服务器，然后服务器使用这些信息来识别用户或者干些其它事情。
+
+本章节将会传授您如何去设置或重设 cookie 的方法，还有如何访问它们及如何删除它们。
+
+JSP Cookie 处理需要对中文进行编码与解码，方法如下：
+12String   str   =   java.net.URLEncoder.encode(&quot;中文&quot;, &quot;UTF-8&quot;);            //编码String   str   =   java.net.URLDecoder.decode(&quot;编码后的字</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-01&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/01/Vue.js%20%E5%AE%89%E8%A3%85/">
+        <p class="h4 index-header">JSP Cookie 处理</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Vue.js 安装1、独立版本我们可以在 Vue.js 的官网上直接下载 vue.min.js 并用 **** 标签引入。
+下载 Vue.js 
+
+2、使用 CDN 方法以下推荐国外比较稳定的两个 CDN，国内还没发现哪一家比较好，目前还是建议下载到本地。
+
+Staticfile CDN（国内） : https://cdn.staticfile.org/vue/2.2.2/vue.min.js
+unpkg：https://unpkg.com/vue/dist/vue.js, 会保持和 npm 发布的最新的版本一致。
+cdnjs : https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js
+
+Staticfile CDN（国内）    
+
+
+
+unpkg（推荐）    
+
+
+
+
+cdnjs    
+
+
+
+
+
+
+
+3、NPM 方法由于 npm 安装速度慢，本教程使用了淘宝的镜像及其命令 cnpm，安装使用介绍参照：使用淘宝 NPM 镜像。
+npm 版本需要大于 3.0，如果低于此版本需要升级它：
+12345678910# 查看版</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-01&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
 
   <div class="row mb-4 mx-auto">
     
@@ -435,102 +523,6 @@ repo后面的Frighti</div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/30/jsp%E7%9A%84request%E5%AF%B9%E8%B1%A1/">
-        <p class="h4 index-header">jsp</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">jsp的request对象主要方法request对象的方法非常多，只写其中常用的几种方法。
-getAttribute(String name);这个方法可以取出name属性的值，name属性的值可以用setAttribute(String name,Object o);方法赋值，如果没有对其赋值，则默认name为null;    
-
-getContexntPath();这个方法可以获取服务器上下文的路径；
-
-getCookies();这个方法可以获取客户端的Cookies（一个保存在客户机中的简单的文本文件）；
-
-getHeader(String name)这个方法可以获取指定名称的HTTP报头的属性值；
-
-getParameter(String name)这个方法可以获取客户端提交到服务器的参数；
-
-getServerName()这个方法可以获得服务器的名称
-
-getServerPort()这个方法可以获得服务器的访问端口
-
-setAttribute(String name,Object o);对name属性赋值
-
-removeAttribute(String name)这个方法移除</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-30&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/30/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9/">
-        <p class="h4 index-header">MySQL知识点</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Mysql数据库知识点1.管理数据库语句：使用数据库：
-use 数据库名;
-添加数据库：
-create database 数据库名;
-修改数据库：
-alter database 数据库名;
-删除数据库：
-drop database 数据库名;
-查看所有数据库：
-show databases;
-2.管理表语句：添加数据表：
-create table 表名(
-　　列名 数据类型 数据约束,
-　　列名 数据类型 数据约束
-);
-create table student(
-　　name varchar(20) not null,
-　　age int(4)
-)
-修改数据表：
-alter table 表名;
-1)在表中增加新字段
-alter table student add colunm name varchar(20);
-2)删除表中的字段
-alter table student drop name;
-3)修改表中字段的类型
-alter table student modify name varchar(10);
-删除数据表：
-drop table 表名;
-drop table student</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-30&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
@@ -622,7 +614,7 @@ drop table student</div>
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "如果你掉进了黑暗里 你能做的 不过是静心等待 直到你的双眼适应黑暗&nbsp;",
+        "&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
